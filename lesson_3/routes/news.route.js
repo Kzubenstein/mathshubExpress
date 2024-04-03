@@ -3,7 +3,7 @@ const {Router} = require("express");
 const router = new Router();
 
 router.get("/news", (req, res) => {
-    res.end("GET/news")
+    res.end(req.method + "/" +req.protocol)
 });
 router.get("/news/:id", (req, res) => {
     const newId = +req.params.id;
@@ -11,13 +11,13 @@ router.get("/news/:id", (req, res) => {
     res.json(foundNews);
 });
 router.post("/news", (req,res) => {
-    res.end("POST/news");
+    res.end(req.method + "/" +req.protocol);
 });
 router.put("/news", (req,res) => {
-    res.end("PUT/news");
+    res.end(req.method + "/" +req.protocol);
 });
 router.delete("/news", (req,res) => {
-    res.end("PUT/news");
+    res.end(req.method + "/" +req.protocol);
 });
 
 module.exports = router;
